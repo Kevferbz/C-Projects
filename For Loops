@@ -1,0 +1,41 @@
+using System;
+namespace SangTao1
+{
+    class SoThanThien
+    {
+        static int mn = 90;
+        static int[] s = new int[mn];
+        static void Main(string[] args)
+        {
+            Run();
+            Console.ReadLine();
+        }
+        static void Run()
+        {
+            int n = Find();
+            for (int i = 0; i < n; ++i)
+                Console.WriteLine("\n Tong Cong: " + n + " so");
+        }
+        static int Find()
+        {
+            int d = 0;
+            for (int x = 10; x < 100; ++x)
+                if (Ucln(x, SoDao(x)) == 1) s[d++] = x;
+            return d;
+        }
+        static int Ucln(int a, int b)
+        {
+            int r;
+            while (b != 0) { r = a % b;a = b;b = r; }
+            return a;
+        }
+        static int SoDao(int x)
+        {
+            int y = 0;
+            do { y = y * 10 + (x % 10); x /= 10; } while (x != 0);
+            return y;
+        }
+        
+
+    }
+}
